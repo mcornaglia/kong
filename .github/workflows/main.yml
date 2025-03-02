@@ -1,0 +1,28 @@
+name: Execute Assignment CI/CD
+on: [push]
+jobs:
+  install:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Download docker-compose
+        run: |
+          sudo curl -SL https://github.com/docker/compose/releases/download/v2.33.1/docker-compose-linux-x86_64 -o /usr/bin/docker-compose
+          sudo chmod +x /usr/bin/docker-compose
+      - name: Create .env file
+        run: |
+          echo "BE_URL=${{ secrets.BE_URL }}" >> .env
+          echo "URL=${{ secrets.URL }}" >> .env
+          cat .env
+      - name: Launch Kong Manager 🐒
+        run: |
+          cd .github/workflows
+          docker-compose up -d
+      - name: Test Suite Execution
+        uses: cypress-io/github-action@v6
+      - name: Giving the monkey a pajama hat and putting him to sleep
+        if: always()
+        run: |
+          cd .github/workflows
+          docker-compose down

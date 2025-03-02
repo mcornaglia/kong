@@ -1,0 +1,21 @@
+{
+  "name": "kong_assignment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "open": "npx cypress open",
+    "suite": "npx cypress run --browser=chrome --no-runner-ui --config-file ./cypress.config.js",
+    "report": "npx mochawesome-merge ./cypress/results/.jsons/*.json -o merged.json & npx marge ./merged.json -o ./cypress/reports/html && start ./cypress/reports/html/merged.html"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^14.1.0",
+    "dotenv": "^16.4.7",
+    "typescript": "^5.8.2"
+  },
+  "devDependencies": {
+    "cypress-mochawesome-reporter": "^3.8.2"
+  }
+}
