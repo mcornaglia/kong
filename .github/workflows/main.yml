@@ -14,7 +14,6 @@ jobs:
         run: |
           echo "BE_URL=${{ secrets.BE_URL }}" >> .env
           echo "URL=${{ secrets.URL }}" >> .env
-          cat .env
       - name: Launch Kong Manager 🐒
         run: |
           cd .github/workflows
