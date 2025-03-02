@@ -165,8 +165,11 @@ Is a service intended to have a null name (it is generated with a GUID).
 Since the same is happening also for routes, I'm guessing it's intended.
 I've notice how during the Route selection, by setting a different protocol there's not a default option set (i.e. I select TLS and by default Source or Destionations or SNIs is selected. Prompting the user a warning message). Might be a wanted behaviour, but I'm reporting this because in my opinion that could potentially be an enhancement. (leads to the Failing test I've added on purpose in `2-routeAddition.cy.ts`)
 
-### Elapsed
+### Start Time
 8.16 PM 28/02/2025
 
 ### End Time
 7.03 PM 02/03/2025
+
+### Elapsed
+~16hrs
